@@ -1,0 +1,189 @@
+:host {
+  display: block;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(10, 10, 10, 0.75);
+  padding: 1.5rem;
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.38);
+}
+
+.lunar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.lunar__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.lunar__tag {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.lunar__title {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.lunar__summary {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.lunar__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.lunar__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.lunar__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.lunar__label {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.lunar__select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 0.85rem 1rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.lunar__select:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.lunar__actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.lunar__actions button {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.92);
+  color: #0a0a0a;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.lunar__actions button:hover,
+.lunar__actions button:focus-visible {
+  transform: translateY(-1px);
+  background: #ffffff;
+  outline: none;
+}
+
+.lunar__output {
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.lunar__hint {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+}
+
+.lunar__error {
+  margin: 0;
+  color: rgba(255, 210, 210, 0.92);
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.lunar__result {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+:host ::ng-deep .lunar__detail {
+  display: grid;
+  gap: 0.35rem;
+}
+
+:host ::ng-deep .lunar__detail-label {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+:host ::ng-deep .lunar__detail-value {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+:host ::ng-deep .lunar__detail-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 0.65rem 0 0.4rem;
+}
+
+:host ::ng-deep .lunar__detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+:host ::ng-deep .lunar__detail-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+:host ::ng-deep .lunar__detail-list strong {
+  color: rgba(255, 255, 255, 0.98);
+  font-weight: 700;
+}
+
+:host ::ng-deep .lunar__note {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+}

@@ -1,0 +1,46 @@
+<section class="lunar" aria-label="Lunar year converter">
+  <header class="lunar__header">
+    <p class="lunar__tag">Exercise 10</p>
+    <h3 class="lunar__title">Chuy&#7875;n &#273;&#7893;i d&#432;&#417;ng l&#7883;ch sang &#226;m l&#7883;ch</h3>
+    <p class="lunar__summary">
+      Ch&#7885;n ng&#224;y, th&#225;ng, n&#259;m d&#432;&#417;ng l&#7883;ch &#273;&#7875; xem th&#244;ng tin &#226;m l&#7883;ch.
+    </p>
+  </header>
+
+  <div class="lunar__form" aria-label="Solar date selection">
+    <div class="lunar__grid">
+      <label class="lunar__field">
+        <span class="lunar__label">Day</span>
+        <select class="lunar__select" [(ngModel)]="selectedDay">
+          <option *ngFor="let day of days; trackBy: trackByValue" [ngValue]="day">{{ day }}</option>
+        </select>
+      </label>
+
+      <label class="lunar__field">
+        <span class="lunar__label">Month</span>
+        <select class="lunar__select" [(ngModel)]="selectedMonth" (ngModelChange)="onMonthYearChange()">
+          <option *ngFor="let month of months; trackBy: trackByValue" [ngValue]="month">{{ month }}</option>
+        </select>
+      </label>
+
+      <label class="lunar__field">
+        <span class="lunar__label">Year</span>
+        <select class="lunar__select" [(ngModel)]="selectedYear" (ngModelChange)="onMonthYearChange()">
+          <option *ngFor="let year of years; trackBy: trackByValue" [ngValue]="year">{{ year }}</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="lunar__actions">
+      <button type="button" (click)="onConvert()">Chuy&#7875;n &#273;&#7893;i</button>
+    </div>
+  </div>
+
+  <div class="lunar__output" aria-live="polite">
+    <p class="lunar__hint" *ngIf="!lunarDetailHtml && !errorMessage">
+      Ch&#7885;n ng&#224;y, th&#225;ng, n&#259;m r&#7891;i nh&#7845;n <strong>Chuy&#7875;n &#273;&#7893;i</strong>.
+    </p>
+    <p class="lunar__error" *ngIf="errorMessage">{{ errorMessage }}</p>
+    <div class="lunar__result" *ngIf="lunarDetailHtml" [innerHTML]="lunarDetailHtml"></div>
+  </div>
+</section>
