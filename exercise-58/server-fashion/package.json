@@ -1,0 +1,18 @@
+﻿{
+  "name": "server-fashion",
+  "version": "1.0.0",
+  "description": "REST API for FashionData",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongoose": "^8.12.1"
+  }
+}

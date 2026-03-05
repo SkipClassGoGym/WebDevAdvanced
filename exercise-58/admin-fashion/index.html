@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="adminFashion">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fashion Admin Panel</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">FD</span>
+        <div>
+          <h1>Fashion Admin</h1>
+          <p>Manage FashionData items</p>
+        </div>
+      </div>
+      <nav class="top-actions">
+        <a href="#!/" class="btn ghost">Fashion List</a>
+        <a href="#!/new" class="btn primary">Add New Fashion</a>
+      </nav>
+    </header>
+
+    <main class="page">
+      <div ng-view></div>
+    </main>
+
+    <script type="text/ng-template" id="list.html">
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h2>Fashion List</h2>
+            <p>All fashions sorted by creation date (newest first).</p>
+          </div>
+          <a href="#!/new" class="btn primary">Add New Fashion</a>
+        </div>
+
+        <div class="state" ng-if="loading">Loading...</div>
+        <div class="state error" ng-if="error">{{ error }}</div>
+
+        <div class="table-wrap" ng-if="!loading">
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Style</th>
+                <th>Created</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="fashion in fashions">
+                <td>
+                  <div class="title-cell">
+                    <img ng-src="{{ fashion.thumbnail }}" alt="" />
+                    <span>{{ fashion.title }}</span>
+                  </div>
+                </td>
+                <td>{{ fashion.style }}</td>
+                <td>{{ fashion.createdAt | date:'medium' }}</td>
+                <td>
+                  <div class="actions">
+                    <a class="btn tiny" href="#!/view/{{ fashion._id }}">View Detail</a>
+                    <a class="btn tiny" href="#!/edit/{{ fashion._id }}">Edit</a>
+                    <button class="btn tiny danger" ng-click="deleteFashion(fashion)">Delete</button>
+                  </div>
+                </td>
+              </tr>
+              <tr ng-if="!fashions.length && !loading">
+                <td colspan="4" class="empty">No fashions yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </script>
+
+    <script type="text/ng-template" id="form.html">
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h2>{{ isEdit ? 'Edit Fashion' : 'Add New Fashion' }}</h2>
+            <p>Fill in all fields before saving.</p>
+          </div>
+          <a href="#!/" class="btn ghost">Back to List</a>
+        </div>
+
+        <div class="state" ng-if="loading">Loading...</div>
+        <div class="state error" ng-if="error">{{ error }}</div>
+
+        <form class="form" ng-submit="save()" ng-if="!loading">
+          <label>
+            Title
+            <input type="text" ng-model="fashion.title" required />
+          </label>
+
+          <label>
+            Style
+            <select ng-model="fashion.style" required>
+              <option value="Streetwear">Streetwear</option>
+              <option value="Minimalist">Minimalist</option>
+              <option value="Vintage">Vintage</option>
+            </select>
+          </label>
+
+          <label>
+            Thumbnail URL
+            <input type="url" ng-model="fashion.thumbnail" required />
+          </label>
+
+          <label>
+            Details
+            <quill-editor ng-model="fashion.details"></quill-editor>
+          </label>
+
+          <div class="form-actions">
+            <button class="btn primary" type="submit">Save</button>
+            <button class="btn ghost" type="button" ng-click="cancel()">Cancel</button>
+          </div>
+        </form>
+      </section>
+    </script>
+
+    <script type="text/ng-template" id="view.html">
+      <section class="card" ng-if="!loading">
+        <div class="card-header">
+          <div>
+            <h2>Fashion Detail</h2>
+            <p>Read-only view.</p>
+          </div>
+          <a href="#!/" class="btn ghost">Back to List</a>
+        </div>
+
+        <div class="state error" ng-if="error">{{ error }}</div>
+
+        <div class="detail" ng-if="fashion">
+          <div class="detail-header">
+            <img ng-src="{{ fashion.thumbnail }}" alt="" />
+            <div>
+              <h3>{{ fashion.title }}</h3>
+              <p class="meta">Style: {{ fashion.style }}</p>
+              <p class="meta">Created: {{ fashion.createdAt | date:'medium' }}</p>
+            </div>
+          </div>
+          <div class="detail-body" ng-bind-html="fashion.details"></div>
+        </div>
+      </section>
+      <div class="state" ng-if="loading">Loading...</div>
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/angular@1.8.3/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/angular-route@1.8.3/angular-route.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/angular-sanitize@1.8.3/angular-sanitize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

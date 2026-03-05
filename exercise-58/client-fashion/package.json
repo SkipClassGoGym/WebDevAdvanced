@@ -1,0 +1,14 @@
+﻿{
+  "name": "client-fashion",
+  "version": "1.0.0",
+  "description": "AngularJS Client Website for FashionData",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
