@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Wireless Mouse",
+    "price": 19.99,
+    "description": "Smooth, reliable wireless mouse with ergonomic shape.",
+    "image": "https://placehold.co/600x400?text=Mouse",
+    "quantity": 50,
+    "category": "Accessories"
+  },
+  {
+    "name": "Mechanical Keyboard",
+    "price": 59.99,
+    "description": "Compact mechanical keyboard with tactile switches.",
+    "image": "https://placehold.co/600x400?text=Keyboard",
+    "quantity": 30,
+    "category": "Accessories"
+  },
+  {
+    "name": "USB-C Hub",
+    "price": 29.99,
+    "description": "Multi-port USB-C hub with HDMI and USB 3.0.",
+    "image": "https://placehold.co/600x400?text=USB-C+Hub",
+    "quantity": 40,
+    "category": "Gadgets"
+  },
+  {
+    "name": "Noise Cancelling Headphones",
+    "price": 89.99,
+    "description": "Over-ear headphones with active noise cancellation.",
+    "image": "https://placehold.co/600x400?text=Headphones",
+    "quantity": 20,
+    "category": "Audio"
+  },
+  {
+    "name": "Laptop Stand",
+    "price": 24.99,
+    "description": "Aluminum laptop stand for better posture.",
+    "image": "https://placehold.co/600x400?text=Laptop+Stand",
+    "quantity": 60,
+    "category": "Office"
+  }
+]
